@@ -20,13 +20,26 @@ app.use(express.json());
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(SwaggerDocs));
 app.use(routes);
 app.listen(process.env.PORT || 5000);
-app.use((req, res, next) => {
-	//Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
-	res.set("access-control-allow-origin", "*");
-	//Quais são os métodos que a conexão pode realizar na API
-	res.set("access-control-allow-methods", "*");
-	//Permitir headers fora do comum
-	res.set("access-control-allow-headers", "content-type, c-custom-header");
-	app.use(cors());
+app.use(function (req, res, next) {
+	// Website you wish to allow to connect
+	res.setHeader("Access-Control-Allow-Origin", "*");
+
+	// Request methods you wish to allow
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"GET, POST, OPTIONS, PUT, PATCH, DELETE"
+	);
+
+	// Request headers you wish to allow
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"X-Requested-With,content-type"
+	);
+
+	// Set to true if you need the website to include cookies in the requests sent
+	// to the API (e.g. in case you use sessions)
+	res.setHeader("Access-Control-Allow-Credentials", true);
+
+	// Pass to next layer of middleware
 	next();
 });
