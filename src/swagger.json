@@ -13,7 +13,7 @@
             "description": "ambiente de desenvolvimento"
         },
         {
-            "url": "https://st-jobsnet-backend.herokuapp.com/",
+            "url": "https://st-jobsnet-backend.herokuapp.com/register",
             "description": "ambiente de produção"
         }
     ],
