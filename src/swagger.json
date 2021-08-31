@@ -1,0 +1,107 @@
+{
+    "openapi": "3.0.0",
+    
+    "info": {
+        "title": "API JobsNET da Ana",
+        "description": "API para o projeto de encerramento do curso Start-Tech, uma parceria entre a Ambev e Gama Academy",
+        "version": "0.0.1"
+    },
+
+    "servers": [
+        {
+            "url": "http://localhost:5000",
+            "description": "ambiente de desenvolvimento"
+        },
+        {
+            "url": "https://st-jobsnet-backend.herokuapp.com/",
+            "description": "ambiente de produção"
+        }
+    ],
+    "paths": {
+        "/register": {
+            "post": {
+                "summary": "Cadastro de Candidato",
+                "description": "Rota de cadastro do candidato. Recebe: name, position, birth, civil, gender, logradouro, bairro, cidade, email, cep, telefone, identidade, cpf, veiculo, cnh",
+                "tags": ["candidato"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "position": {
+                                        "type": "string"
+                                    },
+                                    "birth": {
+                                        "type": "string"
+                                    },
+                                    "civil": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "logradouro": {
+                                        "type": "string"
+                                    },
+                                    "bairro": {
+                                        "type": "string"
+                                    },
+                                    "cidade": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "cep": {
+                                        "type": "string"
+                                    },
+                                    "telefone": {
+                                        "type": "string"
+                                    },
+                                    "identidade": {
+                                        "type": "string"
+                                    },
+                                    "cpf": {
+                                        "type": "string"
+                                    },
+                                    "veiculo": {
+                                        "type": "string"
+                                    },
+                                    "cnh": {
+                                        "type": "string"
+                                    }
+                                }
+
+                            },
+                            "examples": {
+                                "A Criadora [dramatic music intensifies]": {
+                                    "value": {
+                                        "name": "Ana Caroline",
+                                        "position": "dev fullstack",
+                                        "birth": "12/03/1992",
+                                        "civil": "solteire",
+                                        "gender": "feminino",
+                                        "logradouro":"Rua Terezinha de Rezende",
+                                        "bairro": "Colinas de Santa Bárbara",
+                                        "cidade": "Pouso Alegre",
+                                        "email": "ana.cos.arq@gmail.com",
+                                        "cep": "37551258",
+                                        "telefone": "35 9 9999 9999",
+                                        "identidade": "12.345.678",
+                                        "cpf": "12345678910",
+                                        "veiculo": "moto",
+                                        "cnh": "ab"
+                                    }
+                                }
+                            } 
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
